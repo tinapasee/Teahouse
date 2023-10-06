@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login and Register</title>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1582650859079-ee63913ecb84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80'); /* Background image */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .form-toggle {
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #3498DB; /* Blue color for toggle text */
+  }
+  input{
+    margin: 10px;
+    border-radius: 3px;
+    height: 40px;
+    width: 87%;
+    border: darkgreen solid 1px;
+    font-size: medium;
+    font-weight: bold;
+  }
+
+  button{
+    background-color: lightgreen;
+    width: 89%;
+    height: 40px;
+    margin: 10px;
+    border-radius: 3px;
+    font-size: large;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="form-container" id="login-form">
+    <h2>TeaHouse Login</h2>
+    <form action="login.php" method="POST">
+      <input type="text" placeholder="username" name="username" required>
+      <input type="password" placeholder="Password" name="password" required><br>
+      <button type="submit" name="login" value="login">Login</button>
+    </form>
+    <div class="form-toggle" onclick="toggleForm()">Don't have an account? Register</div>
+  </div>
+  <div class="form-container" id="register-form" style="display: none;">
+    <h2>TeaHouse Register</h2>
+    <form action="reg_db.php" method="POST">
+      <input type="text" placeholder="username" name="username" required>
+      <input type="email" placeholder="email" name="email" required>
+      <input type="tel" placeholder="Phone Number" name="phone" required>
+      <input type="text" placeholder="Address" name="address" required>
+      <input type="password" placeholder="Password" name="Password" required>
+      <input type="password" placeholder="Confirm Password" name="Confirm_Password" required><br>
+      <button type="submit" name="submit" value="submit">Register</button>
+    </form>
+    <div class="form-toggle" onclick="toggleForm()">Already have an account? Login</div>
+  </div>
+  <script>
+    function toggleForm() {
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+      registerForm.style.display = registerForm.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
